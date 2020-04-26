@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "366786769072",
+    "firebase_url": "https://fir-project-d9dd7-4cba5.firebaseio.com",
+    "project_id": "fir-project-d9dd7",
+    "storage_bucket": "fir-project-d9dd7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366786769072:android:60dc6a8c9f58747a2a8b75",
+        "android_client_info": {
+          "package_name": "com.example.zen_dummy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366786769072-83c2dal811tr72r3f3te43fcj2nb0o53.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwS8otZEwzcWdKTSFMAAhC6PIt8TJgK5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366786769072-83c2dal811tr72r3f3te43fcj2nb0o53.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "366786769072-4hub05oqivc8ihgdqv89juvdhi9pfen1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ckerApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366786769072:android:95b0fdd4e88d949b2a8b75",
+        "android_client_info": {
+          "package_name": "com.example.zen_hamlets"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366786769072-83c2dal811tr72r3f3te43fcj2nb0o53.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwS8otZEwzcWdKTSFMAAhC6PIt8TJgK5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366786769072-83c2dal811tr72r3f3te43fcj2nb0o53.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "366786769072-4hub05oqivc8ihgdqv89juvdhi9pfen1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ckerApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
