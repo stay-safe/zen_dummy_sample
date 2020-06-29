@@ -46,7 +46,7 @@ class BlocLiteBloc extends Bloc<BlocLiteEvent, BlocLiteState> {
         print("_onValueSubscription triggered");
         print(event.snapshot.value);
         _counter1++;
-        add(LiteYieldEvent);
+        add(LiteYieldEvent());
         //yield LoadedBlocLiteState;//(_counter1);//counter1: _counter1, counter2: _counter2, counter3: _counter3);
       });
       _onChildAddedSubscription =
