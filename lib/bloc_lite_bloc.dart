@@ -32,20 +32,25 @@ class BlocLiteBloc extends Bloc<BlocLiteEvent, BlocLiteState> {
     BlocLiteEvent event,
   ) async* {
     // TODO: Add Logic
-    if (event is LiteEvent) {
+    if (event is LiteTriggerEvent) {
+      print("Event Triggered");
+      print("$_counter1");
+      print("$_counter2");
+      print("$_counter3");
+
       _onValueSubscription?.cancel();
       _onChildAddedSubscription?.cancel();
       _onChildChangedSubscription?.cancel();
 
-      _onValueSubscription = _locationsRef.onValue.listen((Event event) async* {
+      _onValueSubscription = _locationsRef.onValue.listen((Event event) {
         print("_onValueSubscription triggered");
         print(event.snapshot.value);
         _counter1++;
-//        yield LoadedBlocLiteState(
-//            counter1: _counter1, counter2: _counter2, counter3: _counter3);
+        add(LiteYieldEvent);
+        //yield LoadedBlocLiteState;//(_counter1);//counter1: _counter1, counter2: _counter2, counter3: _counter3);
       });
       _onChildAddedSubscription =
-          _locationsRef.onChildAdded.listen((Event event) async* {
+          _locationsRef.onChildAdded.listen((Event event) {
         print("_onChildAddedSubscription triggered");
         print(event.snapshot.value);
         _counter2++;
@@ -53,7 +58,7 @@ class BlocLiteBloc extends Bloc<BlocLiteEvent, BlocLiteState> {
 //            counter1: _counter1, counter2: _counter2, counter3: _counter3);
       });
       _onChildChangedSubscription =
-          _locationsRef.onChildChanged.listen((Event event) async* {
+          _locationsRef.onChildChanged.listen((Event event) {
         print("_onChildChangedSubscription triggered");
         print(event.snapshot.value);
         _counter3++;
@@ -61,8 +66,12 @@ class BlocLiteBloc extends Bloc<BlocLiteEvent, BlocLiteState> {
 //            counter1: _counter1, counter2: _counter2, counter3: _counter3);
       });
 
-      yield LoadedBlocLiteState(
-          counter1: _counter1, counter2: _counter2, counter3: _counter3);
+//      yield LoadedBlocLiteState(
+//          counter1: _counter1, counter2: _counter2, counter3: _counter3);
+    }
+    if (event is LiteYieldEvent){
+      print("Lite Yield Event Triggered");
+      yield LoadedBlocLiteState(counter1: _counter1, counter2: _counter2, counter3: _counter3);
     }
   }
 }

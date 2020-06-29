@@ -1,7 +1,10 @@
 import 'package:equatable/equatable.dart';
 
-abstract class BlocLiteEvent extends Equatable {
+abstract class BlocLiteEvent {
   BlocLiteEvent();
+
 }
 
-class LiteEvent extends BlocLiteEvent {}
+class LiteTriggerEvent extends BlocLiteEvent {}
+
+class LiteYieldEvent extends BlocLiteEvent {}

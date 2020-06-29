@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:zen_dummy/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'dart:async';
+//import 'dart:async';
 
 void main() => runApp(MyApp());
 
@@ -102,22 +102,25 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: BlocProvider<BlocLiteBloc>(
-        create: (BuildContext context) {
-          return BlocLiteBloc()..add(LiteEvent());
-        },
-        child: Container(
+    return BlocProvider<BlocLiteBloc>(
+      create: (BuildContext context) {
+        return BlocLiteBloc()..add(LiteTriggerEvent());
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(widget.title),
+        ),
+        body: Container(
           decoration: BoxDecoration(color: Color.fromARGB(151, 223, 20, 22)),
           child: Center(
             // Center is a layout widget. It takes a single child and positions it
             // in the middle of the parent.
             child: BlocBuilder<BlocLiteBloc, BlocLiteState>(
                 builder: (context, state) {
-              if (state is LoadedBlocLiteState) {
+              if (state is InitialBlocLiteState){
+                return Text("Loading");
+              }
+              else if (state is LoadedBlocLiteState) {
                 int _counter1 = state.counter1;
                 int _counter2 = state.counter2;
                 int _counter3 = state.counter3;
@@ -161,6 +164,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ],
                     ),
+                    RaisedButton(
+                      onPressed: (){
+                        final blocLiteBloc = BlocProvider.of<BlocLiteBloc>(context);
+                        blocLiteBloc.add(LiteTriggerEvent());
+                      },
+                      child: Text("Event"),
+                    ),
                   ],
                 );
               } else {
@@ -169,15 +179,14 @@ class _MyHomePageState extends State<MyHomePage> {
             }),
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          final blocLiteBloc = BlocProvider.of<BlocLiteBloc>(context);
-          blocLiteBloc.add(LiteEvent());
-        },
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+//        floatingActionButton: FloatingActionButton(
+//          onPressed: () {
+//            final blocLiteBloc = BlocProvider.of<BlocLiteBloc>(context);
+//            blocLiteBloc.add(LiteEvent());
+//          },
+//          tooltip: 'Increment',
+//          child: Icon(Icons.add),
+//        ),
 //      Row(
 //        children: <Widget>[
 //          FloatingActionButton(
@@ -197,6 +206,7 @@ class _MyHomePageState extends State<MyHomePage> {
 //          ),
 //        ],
 //      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }

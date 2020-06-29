@@ -20,4 +20,7 @@ class LoadedBlocLiteState extends BlocLiteState {
     @required this.counter2,
     @required this.counter3,
   });
+
+  @override
+  List<Object> get props => [counter1, counter2, counter3];
 }
